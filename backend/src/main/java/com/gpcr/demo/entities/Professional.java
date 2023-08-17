@@ -4,25 +4,23 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name= "tb_professional")
 public class Professional extends Person implements Serializable {
-	private static final long serialVersionUID = 1L;
-	
-	@Id
-    private Long id_professional;    
+	private static final long serialVersionUID = 1L;	
+	   
     private String registry;    
     private String username;
     private String password;
     
     public Professional () {}
 
-	public Professional(String rg, String cpf, String registry, String birth, String name, String cep, String street,
+	public Professional(Long id_professional, String rg, String cpf, String registry, String birth, String name, String cep, String street,
 			int number, String city, String phone1, String phone2, String email, String username, String password) {
 		super();
+		this.id = id_professional;
 		this.rg = rg;
 		this.cpf = cpf;
 		this.registry = registry;
@@ -39,8 +37,9 @@ public class Professional extends Person implements Serializable {
 		this.password = password;
 	}
 
-	public Professional(String email, String username, String password) {
+	public Professional(Long id_professional, String email, String username, String password) {
 		super();
+		this.id = id_professional;
 		this.email = email;
 		this.username = username;
 		this.password = password;
@@ -159,12 +158,12 @@ public class Professional extends Person implements Serializable {
 	}	
 
 	public Long getId_professional() {
-		return id_professional;
+		return id;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id_professional);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -176,7 +175,7 @@ public class Professional extends Person implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Professional other = (Professional) obj;
-		return id_professional == other.id_professional;
+		return id == other.id;
 	}
     
     

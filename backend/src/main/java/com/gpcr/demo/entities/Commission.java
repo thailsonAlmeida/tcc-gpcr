@@ -3,6 +3,8 @@ package com.gpcr.demo.entities;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -11,6 +13,7 @@ import jakarta.persistence.Table;
 public class Commission {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_comission;
     private Double money;
     private String status;

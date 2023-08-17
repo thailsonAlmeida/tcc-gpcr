@@ -4,16 +4,13 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name= "tb_manager")
 public class Manager extends Person implements Serializable   {
-	private static final long serialVersionUID = 1L;
-	
-	@Id
-    private Long id_manager;   
+	private static final long serialVersionUID = 1L;	
+	   
     private String username;
     private String password;
     
@@ -22,7 +19,7 @@ public class Manager extends Person implements Serializable   {
 	public Manager(Long id_manager, String name, String email, String phone1, String phone2, String cep, String street, int number,
 			String city, String states, String birth, String cpf, String username, String password) {
 		super();
-		this.id_manager = id_manager;
+		this.id = id_manager;
 		this.name = name;
 		this.email = email;
 		this.phone1 = phone1;
@@ -40,7 +37,7 @@ public class Manager extends Person implements Serializable   {
 
 	public Manager(Long id_manager, String email, String username, String password) {
 		super();
-		this.id_manager = id_manager;
+		this.id = id_manager;
 		this.email = email;
 		this.username = username;
 		this.password = password;
@@ -49,7 +46,7 @@ public class Manager extends Person implements Serializable   {
 	public Manager(Long id_manager, String name, String email, String phone1, String phone2, String cep, String street, int number,
 			String city, String states, String birth, String cpf) {
 		super();
-		this.id_manager = id_manager;
+		this.id = id_manager;
 		this.name = name;
 		this.email = email;
 		this.phone1 = phone1;
@@ -168,16 +165,16 @@ public class Manager extends Person implements Serializable   {
 	}	
 
 	public Long getId_manager() {
-		return id_manager;
+		return id;
 	}	
 
 	public void setId_manager(Long id_manager) {
-		this.id_manager = id_manager;
+		this.id = id_manager;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id_manager);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -189,7 +186,7 @@ public class Manager extends Person implements Serializable   {
 		if (getClass() != obj.getClass())
 			return false;
 		Manager other = (Manager) obj;
-		return id_manager == other.id_manager;
+		return id == other.id;
 	}
     
     

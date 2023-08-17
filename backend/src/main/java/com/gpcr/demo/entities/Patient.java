@@ -4,24 +4,22 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name= "tb_patient")
 public class Patient extends Person implements Serializable {
-	private static final long serialVersionUID = 1L;
-	
-	@Id
-    private Long id_patient;    
+	private static final long serialVersionUID = 1L;	
+	   
     private String covenant_plan;
     private String covenant_number;
     
     public Patient() {}
 
-	public Patient(String rg, String cpf, String birth, String name, String cep, String street, int number, String city,
+	public Patient(Long id_patient, String rg, String cpf, String birth, String name, String cep, String street, int number, String city,
 			String states, String phone1, String phone2, String email, String covenant_plan, String covenant_number) {
 		super();
+		this.id = id_patient;
 		this.rg = rg;
 		this.cpf = cpf;
 		this.birth = birth;
@@ -38,7 +36,7 @@ public class Patient extends Person implements Serializable {
 		this.covenant_number = covenant_number;
 	}
 
-	public Patient(String cpf, String birth, String name, String email, String covenant_plan, String covenant_number) {
+	public Patient(Long id_patient, String cpf, String birth, String name, String email, String covenant_plan, String covenant_number) {
 		super();
 		this.cpf = cpf;
 		this.birth = birth;
@@ -161,12 +159,12 @@ public class Patient extends Person implements Serializable {
 	}	
 
 	public Long getId_patient() {
-		return id_patient;
+		return id;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id_patient);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -178,7 +176,7 @@ public class Patient extends Person implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Patient other = (Patient) obj;
-		return id_patient == other.id_patient;
+		return id == other.id;
 	}
 
 	
