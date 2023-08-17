@@ -3,12 +3,14 @@ package com.gpcr.demo.entities;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name= "tb_comission")
 public class Commission {
 	
+	@Id
     private Long id_comission;
     private Double money;
     private String status;

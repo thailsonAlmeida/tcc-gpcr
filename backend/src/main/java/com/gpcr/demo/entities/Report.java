@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
@@ -11,6 +12,7 @@ import jakarta.persistence.Table;
 public class Report implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	@Id
 	private Long id_report;
 	private String type;
 	private String description;

@@ -4,26 +4,17 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name= "tb_professional")
-public class Professional implements Serializable {
+public class Professional extends Person implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-    private Long id_professional;
-    private String rg;
-    private String cpf;
-    private String registry;
-    private String birth;
-    private String name;
-    private String cep;
-    private String street;
-    private int number;
-    private String city;
-    private String phone1;
-    private String phone2;
-    private String email;
+	@Id
+    private Long id_professional;    
+    private String registry;    
     private String username;
     private String password;
     

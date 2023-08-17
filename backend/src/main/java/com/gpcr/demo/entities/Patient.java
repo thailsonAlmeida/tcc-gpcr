@@ -4,26 +4,16 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name= "tb_patient")
-public class Patient implements Serializable {
+public class Patient extends Person implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-    private Long id_patient;
-    private String rg;
-    private String cpf;
-    private String birth;
-    private String name;
-    private String cep;
-    private String street;
-    private int number;
-    private String city;
-    private String states;
-    private String phone1;
-    private String phone2;
-    private String email;    
+	@Id
+    private Long id_patient;    
     private String covenant_plan;
     private String covenant_number;
     

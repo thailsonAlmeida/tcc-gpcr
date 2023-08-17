@@ -4,33 +4,25 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name= "tb_manager")
-public class Manager implements Serializable {
+public class Manager extends Person implements Serializable   {
 	private static final long serialVersionUID = 1L;
 	
-    private Long id_manager;
-    private String name;
-    private String email;
-    private String phone1;
-    private String phone2;
-    private String cep;
-    private String street;
-    private int number;
-    private String city;
-    private String states;
-    private String birth;
-    private String cpf;
+	@Id
+    private Long id_manager;   
     private String username;
     private String password;
     
     public Manager() {}
 
-	public Manager(String name, String email, String phone1, String phone2, String cep, String street, int number,
+	public Manager(Long id_manager, String name, String email, String phone1, String phone2, String cep, String street, int number,
 			String city, String states, String birth, String cpf, String username, String password) {
 		super();
+		this.id_manager = id_manager;
 		this.name = name;
 		this.email = email;
 		this.phone1 = phone1;
@@ -46,16 +38,18 @@ public class Manager implements Serializable {
 		this.password = password;
 	}
 
-	public Manager(String email, String username, String password) {
+	public Manager(Long id_manager, String email, String username, String password) {
 		super();
+		this.id_manager = id_manager;
 		this.email = email;
 		this.username = username;
 		this.password = password;
 	}
 
-	public Manager(String name, String email, String phone1, String phone2, String cep, String street, int number,
+	public Manager(Long id_manager, String name, String email, String phone1, String phone2, String cep, String street, int number,
 			String city, String states, String birth, String cpf) {
 		super();
+		this.id_manager = id_manager;
 		this.name = name;
 		this.email = email;
 		this.phone1 = phone1;
@@ -175,6 +169,10 @@ public class Manager implements Serializable {
 
 	public Long getId_manager() {
 		return id_manager;
+	}	
+
+	public void setId_manager(Long id_manager) {
+		this.id_manager = id_manager;
 	}
 
 	@Override
