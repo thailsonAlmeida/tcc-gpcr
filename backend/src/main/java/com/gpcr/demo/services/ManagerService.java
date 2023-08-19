@@ -32,4 +32,25 @@ public class ManagerService {
 		Manager entity = obj.orElseThrow(() -> new ResouceNotFoundException("Entity not found"));
 		return new ManagerDTO(entity);
 	}
+	
+	@Transactional
+	public ManagerDTO insert(ManagerDTO dto) {
+		Manager entity = new Manager();
+		entity.setName(dto.getName());
+		entity.setBirth(dto.getBirth());
+		entity.setCpf(dto.getCep());
+		entity.setRg(dto.getRg());
+		entity.setPhone1(dto.getPhone1());
+		entity.setPhone2(dto.getPhone2());
+		entity.setCep(dto.getCep());
+		entity.setStreet(dto.getStreet());
+		entity.setNumber(dto.getNumber());
+		entity.setCity(dto.getCity());
+		entity.setStates(dto.getStates());
+		entity.setEmail(dto.getEmail());
+		entity.setUsername(dto.getUsername());
+		entity.setPassword(dto.getPassword());
+		entity = repository.save(entity);
+		return new ManagerDTO(entity);
+	}
 }
