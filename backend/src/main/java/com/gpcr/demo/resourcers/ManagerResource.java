@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gpcr.demo.entities.Manager;
+import com.gpcr.demo.dto.ManagerDTO;
 import com.gpcr.demo.services.ManagerService;
 
 @RestController
@@ -19,8 +19,8 @@ public class ManagerResource {
 	private ManagerService service;
 	
 	@GetMapping
-	public ResponseEntity<List<Manager>> findAll(){
-		List<Manager> list = service.findAll();
+	public ResponseEntity<List<ManagerDTO>> findAll(){
+		List<ManagerDTO> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 }

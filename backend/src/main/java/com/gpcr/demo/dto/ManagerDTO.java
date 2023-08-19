@@ -1,52 +1,35 @@
-package com.gpcr.demo.entities;
+package com.gpcr.demo.dto;
 
 import java.io.Serializable;
-import java.util.Objects;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import com.gpcr.demo.entities.Manager;
 
-@Entity
-@Table(name= "tb_manager")
-public class Manager extends Person implements Serializable{
-	private static final long serialVersionUID = 1L;	
-	   
-    private String username;
+public class ManagerDTO implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
+	private Long id;
+	private String name;
+	private String email;
+	private String phone1;
+	private String phone2;
+	private String cep;
+	private String street;
+	private int number;
+	private String city;
+	private String states;
+	private String birth;
+	private String cpf;
+	private String rg;
+	private String username;
     private String password;
     
-    public Manager() {}
+    public ManagerDTO() {}
 
-	public Manager(Long id_manager, String name, String email, String phone1, String phone2, String cep, String street, int number,
-			String city, String states, String birth, String cpf, String username, String password) {
+	public ManagerDTO(Long id, String name, String email, String phone1, String phone2, String cep, String street,
+			int number, String city, String states, String birth, String cpf, String rg, String username,
+			String password) {
 		super();
-		this.id = id_manager;
-		this.name = name;
-		this.email = email;
-		this.phone1 = phone1;
-		this.phone2 = phone2;
-		this.cep = cep;
-		this.street = street;
-		this.number = number;
-		this.city = city;
-		this.states = states;
-		this.birth = birth;
-		this.cpf = cpf;
-		this.username = username;
-		this.password = password;
-	}
-
-	public Manager(Long id_manager, String email, String username, String password) {
-		super();
-		this.id = id_manager;
-		this.email = email;
-		this.username = username;
-		this.password = password;
-	}
-
-	public Manager(Long id_manager, String name, String email, String phone1, String phone2, String cep, String street, int number,
-			String city, String states, String birth, String cpf, String rg) {
-		super();
-		this.id = id_manager;
+		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.phone1 = phone1;
@@ -59,6 +42,34 @@ public class Manager extends Person implements Serializable{
 		this.birth = birth;
 		this.cpf = cpf;
 		this.rg = rg;
+		this.username = username;
+		this.password = password;
+	}
+	
+	public ManagerDTO(Manager entity) {
+		this.id = entity.getId_manager();
+		this.name = entity.getName();
+		this.email = entity.getEmail();
+		this.phone1 = entity.getPhone1();
+		this.phone2 = entity.getPhone2();
+		this.cep = entity.getCep();
+		this.street = entity.getStreet();
+		this.number = entity.getNumber();
+		this.city = entity.getCity();
+		this.states = entity.getStates();
+		this.birth = entity.getBirth();
+		this.cpf = entity.getCpf();
+		this.rg = entity.getRg();
+		this.username = entity.getUsername();
+		this.password = entity.getPassword();
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -149,6 +160,14 @@ public class Manager extends Person implements Serializable{
 		this.cpf = cpf;
 	}
 
+	public String getRg() {
+		return rg;
+	}
+
+	public void setRg(String rg) {
+		this.rg = rg;
+	}
+
 	public String getUsername() {
 		return username;
 	}
@@ -163,42 +182,8 @@ public class Manager extends Person implements Serializable{
 
 	public void setPassword(String password) {
 		this.password = password;
-	}	
-
-	public Long getId_manager() {
-		return id;
-	}	
-
-	public void setId_manager(Long id_manager) {
-		this.id = id_manager;
-	}
-	
-	public void setRg(String rg) {
-		this.rg = rg;
-	}
-
-	public String getRg() {
-		return rg;
-	}
-	
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Manager other = (Manager) obj;
-		return id == other.id;
 	}
     
-    
+	
 
 }
