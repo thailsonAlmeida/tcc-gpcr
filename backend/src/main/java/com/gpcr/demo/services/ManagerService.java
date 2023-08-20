@@ -1,16 +1,19 @@
 package com.gpcr.demo.services;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.gpcr.demo.dto.ManagerDTO;
 import com.gpcr.demo.entities.Manager;
 import com.gpcr.demo.repositories.ManagerRepository;
+import com.gpcr.demo.services.exceptions.DataBaseException;
 import com.gpcr.demo.services.exceptions.ResouceNotFoundException;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -23,9 +26,9 @@ public class ManagerService {
 	private ManagerRepository repository;
 	
 	@Transactional(readOnly = true)
-	public List<ManagerDTO> findAll(){
-		List<Manager> list = repository.findAll();
-		return list.stream().map(x -> new ManagerDTO(x)).collect(Collectors.toList());
+	public Page<ManagerDTO> findAllPaged(PageRequest pageRequest){
+		Page<Manager> list = repository.findAll(pageRequest);
+		return list.map(x -> new ManagerDTO(x));
 	}
 
 	@Transactional(readOnly = true)
@@ -78,6 +81,18 @@ public class ManagerService {
 			return new ManagerDTO(entity);
 		}catch(EntityNotFoundException e) {
 			throw new ResouceNotFoundException("ID not found " + id);
+		}
+	}
+
+	public void delete(Long id) {
+		try {
+			repository.deleteById(id);
+		}
+		catch(EmptyResultDataAccessException e) {
+			throw new ResouceNotFoundException("ID not found " + id);
+		}
+		catch(DataIntegrityViolationException e) {
+			throw new DataBaseException("Integreity violation");
 		}
 	}
 }

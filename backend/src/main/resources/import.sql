@@ -1,10 +1,15 @@
 /*Manager*/
 INSERT INTO tb_manager(name, cpf, rg, birth, phone1, phone2, cep, street, number, city, states, username, password, email) VALUES ('Thais Fragoso', '401.698.975-67', '41.125.697-x', '13/12/1994', '(15) 9 8656-6987', '(11) 9 8245-6598', '18456-650', 'Rua Alamo', 15, 'Boituva', 'SP', 'thais', '123#', 'thais@gmail.com');
 INSERT INTO tb_manager(name, cpf, rg, birth, phone1, phone2, cep, street, number, city, states, username, password, email) VALUES ('Thailson Almeida', '401.898.985-87', '42.135.797-x', '13/12/1994', '(15) 9 7656-6687', '(11) 9 9245-8598', '19456-650', 'Rua Alamo', 15, 'Boituva', 'SP', 'thailson', '123#', 'thailson@gmail.com');
+INSERT INTO tb_manager(name, cpf, rg, birth, phone1, phone2, cep, street, number, city, states, username, password, email) VALUES ('Jessica Farias', '401.698.975-67', '41.125.697-x', '13/12/1997', '(15) 9 8656-6987', '(11) 9 8245-6598', '18456-650', 'Rua Alamo', 15, 'Boituva', 'SP', 'jessica', '123#', 'jessica@gmail.com');
+INSERT INTO tb_manager(name, cpf, rg, birth, phone1, phone2, cep, street, number, city, states, username, password, email) VALUES ('Pedro Antunes', '401.898.985-87', '42.135.797-x', '13/12/1999', '(15) 9 7656-6687', '(11) 9 9245-8598', '19456-650', 'Rua Alamo', 15, 'Boituva', 'SP', 'pedro', '123#', 'pedro@gmail.com');
+
+
 
 /*Professional*/
 INSERT INTO tb_professional(name, cpf, rg, birth, phone1, phone2, cep, street, number, city, states, username, password, email, registry) VALUES ('Elyda Carmargo', '501.698.985-87', '45.125.637-x', '13/08/1994', '(11) 9 7657-6987', '(11) 9 8949-6598', '18456-650', 'Street A', 20, 'Boituva', 'SP', 'elyda', '123#', 'elyda@gmail.com', '1598mx');
 INSERT INTO tb_professional(name, cpf, rg, birth, phone1, phone2, cep, street, number, city, states, username, password, email, registry) VALUES ('Cleiton Santos Vilas', '451.695.885-87', '44.425.637-x', '13/08/1976', '(21) 9 9877-6987', '(11) 9 8977-6598', '19456-750', 'Street B', 660, 'Porto Feliz', 'SP', 'cleiton', '123#', 'cleiton@gmail.com', '6598dx');
+INSERT INTO tb_professional(name, cpf, rg, birth, phone1, phone2, cep, street, number, city, states, username, password, email, registry) VALUES ('Lando Camilão', '451.695.885-87', '44.425.637-x', '13/08/1976', '(21) 9 9877-6987', '(11) 9 8977-6598', '19456-750', 'Street B', 660, 'Porto Feliz', 'SP', 'lando', '123#', 'lando@gmail.com', '9998dx');
 
 /*Patient*/
 INSERT INTO tb_patient(name, cpf, rg, birth, phone1, phone2, cep, street, number, city, states, covenant_plan, covenant_number, email) VALUES ('Amanda Elias', '511.198.385-37', '55.625.657-x', '26/07/1978', '(11) 9 7687-6987', '(11) 9 8810-6578', '18456-660', 'Rua Expedicionario', 30, 'Boituva', 'SP', 'Unimed BTrix', '1252365487', 'amanda@gmail.com');
@@ -13,6 +18,10 @@ INSERT INTO tb_patient(name, cpf, rg, birth, phone1, phone2, cep, street, number
 
 INSERT INTO tb_patient(name, cpf, rg, birth, phone1, phone2, cep, street, number, city, states, email) VALUES ('Carlos Brandão', '451.795.985-87', '64.525.637-x', '01/02/1988', '(11) 9 9867-4987', '(11) 9 8542-3508', '19456-650', 'Rua Frios', 223, 'Porto Feliz', 'SP', 'carlos@gmail.com');
 INSERT INTO tb_patient(name, cpf, rg, birth, phone1, phone2, cep, street, number, city, states, email) VALUES ('Julia Brandão', '442.292.685-87', '54.235.637-x', '10/02/1990', '(11) 9 9777-9987', '(11) 9 8653-3308', '18956-650', 'Rua Lemom', 323, 'Porto Feliz', 'SP', 'julia@gmail.com');
+INSERT INTO tb_patient(name, cpf, rg, birth, phone1, phone2, cep, street, number, city, states, email) VALUES ('Gaspar Freitas', '442.292.685-87', '54.235.637-x', '10/02/1990', '(11) 9 9777-9987', '(11) 9 8653-3308', '18956-650', 'Rua Lemom', 323, 'Porto Feliz', 'SP', 'gaspar@gmail.com');
+INSERT INTO tb_patient(name, cpf, rg, birth, phone1, phone2, cep, street, number, city, states, email) VALUES ('Janaina Milan', '442.292.685-87', '54.235.637-x', '10/02/1990', '(11) 9 9777-9987', '(11) 9 8653-3308', '18956-650', 'Rua Lemom', 323, 'Porto Feliz', 'SP', 'janaina@gmail.com');
+INSERT INTO tb_patient(name, cpf, rg, birth, phone1, phone2, cep, street, number, city, states, email) VALUES ('Marlon Gusmão', '442.292.685-87', '54.235.637-x', '10/02/1990', '(11) 9 9777-9987', '(11) 9 8653-3308', '18956-650', 'Rua Lemom', 323, 'Porto Feliz', 'SP', 'marlon@gmail.com');
+INSERT INTO tb_patient(name, cpf, rg, birth, phone1, phone2, cep, street, number, city, states, email) VALUES ('Melissa Gantes', '442.292.685-87', '54.235.637-x', '10/02/1990', '(11) 9 9777-9987', '(11) 9 8653-3308', '18956-650', 'Rua Lemom', 323, 'Porto Feliz', 'SP', 'melissa@gmail.com');
 
 /*Procedure*/
 INSERT INTO tb_procedure(id_manager, id_patient, id_professional, data, start, finish, type, description, status ) VALUES (1, 1, 1, '21/08/2023', '10:00', '11:00', 'Avaliativo', 'It has survived not only five centuries, but also the leap into electronic typesetting', 'confirmar');
