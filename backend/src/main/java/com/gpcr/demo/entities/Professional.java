@@ -18,7 +18,7 @@ public class Professional extends Person implements Serializable {
     public Professional () {}
 
 	public Professional(Long id_professional, String rg, String cpf, String registry, String birth, String name, String cep, String street,
-			int number, String city, String phone1, String phone2, String email, String username, String password) {
+			int number, String city, String states, String phone1, String phone2, String email, String username, String password) {
 		super();
 		this.id = id_professional;
 		this.rg = rg;
@@ -30,6 +30,7 @@ public class Professional extends Person implements Serializable {
 		this.street = street;
 		this.number = number;
 		this.city = city;
+		this.states = states;
 		this.phone1 = phone1;
 		this.phone2 = phone2;
 		this.email = email;
@@ -115,6 +116,14 @@ public class Professional extends Person implements Serializable {
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+	
+	public String getStates() {
+		return states;
+	}
+	
+	public void setStates(String states) {
+		this.states = states;
 	}
 
 	public String getPhone1() {
