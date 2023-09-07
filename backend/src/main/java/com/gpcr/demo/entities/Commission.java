@@ -2,10 +2,13 @@ package com.gpcr.demo.entities;
 
 import java.util.Objects;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,15 +20,18 @@ public class Commission {
     private Long id_comission;
     private Double money;
     private String status;
-    private Long id_procedure;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_procedure")
+    private Procedure procedure;
     
     public Commission() {}
 
-	public Commission(Double money, String status, Long id_procedure) {
+	public Commission(Double money, String status, Procedure id_procedure) {
 		super();
 		this.money = money;
 		this.status = status;
-		this.id_procedure = id_procedure;
+		this.procedure = id_procedure;
 	}
 
 	public Double getMoney() {
@@ -44,12 +50,12 @@ public class Commission {
 		this.status = status;
 	}
 
-	public Long getId_procedure() {
-		return id_procedure;
+	public Procedure getId_procedure() {
+		return procedure;
 	}
 
-	public void setId_procedure(Long id_procedure) {
-		this.id_procedure = id_procedure;
+	public void setId_procedure(Procedure id_procedure) {
+		this.procedure = id_procedure;
 	}
 
 	public Long getId_comission() {

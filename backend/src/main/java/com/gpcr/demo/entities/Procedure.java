@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -22,14 +24,20 @@ public class Procedure {
     private String status;
     private String description;
     
-    private int id_professional;
-    private int id_patient;
-    private int id_manager;
+    @ManyToOne
+    @JoinColumn(name = "id_professional", nullable = false)
+    private Professional professional;
+    @ManyToOne
+    @JoinColumn(name = "id_patient", nullable = false)
+    private Patient patient;
+    @ManyToOne
+    @JoinColumn(name = "id_manager", nullable = false)
+    private Manager manager;
     
     public Procedure() {}
     
 	public Procedure(String data, String start, String finish, String type, String status, String description,
-			int id_professional, int id_patient, int id_manager) {
+			Professional professional, Patient patient, Manager manager) {
 		super();
 		this.data = data;
 		this.start = start;
@@ -37,9 +45,9 @@ public class Procedure {
 		this.type = type;
 		this.status = status;
 		this.description = description;
-		this.id_professional = id_professional;
-		this.id_patient = id_patient;
-		this.id_manager = id_manager;
+		this.professional = professional;
+		this.patient = patient;
+		this.manager = manager;
 	}
 
 	public String getData() {
@@ -88,30 +96,38 @@ public class Procedure {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public int getId_professional() {
-		return id_professional;
-	}
-
-	public void setId_professional(int id_professional) {
-		this.id_professional = id_professional;
-	}
-
-	public int getId_patient() {
-		return id_patient;
-	}
-
-	public void setId_patient(int id_patient) {
-		this.id_patient = id_patient;
-	}
-
+	}	
+	
 	public Long getId_procedure() {
 		return id_procedure;
 	}
 
-	public int getId_manager() {
-		return id_manager;
+	public void setId_procedure(Long id_procedure) {
+		this.id_procedure = id_procedure;
+	}	
+
+	public Professional getProfessional() {
+		return professional;
+	}
+
+	public void setProfessional(Professional professional) {
+		this.professional = professional;
+	}
+
+	public Patient getPatient() {
+		return patient;
+	}
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
+
+	public Manager getManager() {
+		return manager;
+	}
+
+	public void setManager(Manager manager) {
+		this.manager = manager;
 	}
 
 	@Override

@@ -1,9 +1,11 @@
 package com.gpcr.demo.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -13,6 +15,9 @@ public class Patient extends Person implements Serializable {
 	   
     private String covenant_plan;
     private String covenant_number;
+    
+    @OneToMany(mappedBy = "patient")
+    private List<Procedure> procedures; 
     
     public Patient() {}
 
@@ -160,6 +165,14 @@ public class Patient extends Person implements Serializable {
 
 	public Long getId_patient() {
 		return id;
+	}	
+
+	public List<Procedure> getProcedures() {
+		return procedures;
+	}
+
+	public void setProcedures(List<Procedure> procedures) {
+		this.procedures = procedures;
 	}
 
 	@Override

@@ -3,10 +3,13 @@ package com.gpcr.demo.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -18,16 +21,20 @@ public class Report implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_report;
 	private String type;
-	private String description;
-	private Long id_procedure;
+	private String description;	
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_procedure")
+	private Procedure procedure;
 	
 	public Report() {}
 
-	public Report(String type, String description, Long id_procedure) {
+	public Report(Long id_report, String type, String description, Procedure procedure) {
 		super();
+		this.id_report = id_report;
 		this.type = type;
 		this.description = description;
-		this.id_procedure = id_procedure;
+		this.procedure = procedure;
 	}
 
 	public String getType() {
@@ -44,14 +51,18 @@ public class Report implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}	
+
+	public Procedure getProcedure() {
+		return procedure;
 	}
 
-	public Long getId_procedure() {
-		return id_procedure;
+	public void setProcedure(Procedure procedure) {
+		this.procedure = procedure;
 	}
 
-	public void setId_procedure(Long id_procedure) {
-		this.id_procedure = id_procedure;
+	public void setId_report(Long id_report) {
+		this.id_report = id_report;
 	}
 
 	public Long getId_report() {

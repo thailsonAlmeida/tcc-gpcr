@@ -40,6 +40,24 @@ public class PatientService {
 	@Transactional
 	public PatientDTO insert(PatientDTO dto) {
 		Patient entity = new Patient();
+		copyDtoEntity(dto, entity);		  
+	    entity = repository.save(entity);
+		return new PatientDTO(entity);
+	}	
+
+	@Transactional
+	public PatientDTO update(Long id, PatientDTO dto) {
+		try{
+			Patient entity = repository.getReferenceById(id);
+			copyDtoEntity(dto, entity);
+		    entity = repository.save(entity);
+			return new PatientDTO(entity);			
+		}catch (EntityNotFoundException e) {
+			throw new ResouceNotFoundException("ID not found " + id);
+		}
+	}
+	
+	private void copyDtoEntity(PatientDTO dto, Patient entity) {
 		entity.setName(dto.getName());
 		entity.setEmail(dto.getEmail());
 		entity.setPhone1(dto.getPhone1());
@@ -53,34 +71,8 @@ public class PatientService {
 		entity.setCpf(dto.getCpf());
 		entity.setRg(dto.getRg());
 		entity.setCovenant_number(dto.getCovenant_number());		
-		entity.setCovenant_plan(dto.getCovenant_plan());   
-	    entity = repository.save(entity);
-		return new PatientDTO(entity);
-	}
-
-	@Transactional
-	public PatientDTO update(Long id, PatientDTO dto) {
-		try{
-			Patient entity = repository.getReferenceById(id);
-			entity.setName(dto.getName());
-			entity.setEmail(dto.getEmail());
-			entity.setPhone1(dto.getPhone1());
-			entity.setPhone2(dto.getPhone2());
-			entity.setCep(dto.getCep());
-			entity.setStreet(dto.getStreet());
-			entity.setNumber(dto.getNumber());
-			entity.setCity(dto.getCity());
-			entity.setStates(dto.getStates());
-			entity.setBirth(dto.getBirth());
-			entity.setCpf(dto.getCpf());
-			entity.setRg(dto.getRg());
-			entity.setCovenant_number(dto.getCovenant_number());		
-			entity.setCovenant_plan(dto.getCovenant_plan()); 
-		    entity = repository.save(entity);
-			return new PatientDTO(entity);			
-		}catch (EntityNotFoundException e) {
-			throw new ResouceNotFoundException("ID not found " + id);
-		}
+		entity.setCovenant_plan(dto.getCovenant_plan()); 
+		
 	}
 
 	public void delete(Long id) {

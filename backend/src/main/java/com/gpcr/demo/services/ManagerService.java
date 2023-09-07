@@ -41,42 +41,17 @@ public class ManagerService {
 	@Transactional
 	public ManagerDTO insert(ManagerDTO dto) {
 		Manager entity = new Manager();
-		entity.setName(dto.getName());
-		entity.setBirth(dto.getBirth());
-		entity.setCpf(dto.getCep());
-		entity.setRg(dto.getRg());
-		entity.setPhone1(dto.getPhone1());
-		entity.setPhone2(dto.getPhone2());
-		entity.setCep(dto.getCep());
-		entity.setStreet(dto.getStreet());
-		entity.setNumber(dto.getNumber());
-		entity.setCity(dto.getCity());
-		entity.setStates(dto.getStates());
-		entity.setEmail(dto.getEmail());
-		entity.setUsername(dto.getUsername());
-		entity.setPassword(dto.getPassword());
+		copyDtoEntity(dto, entity);		
 		entity = repository.save(entity);
 		return new ManagerDTO(entity);
 	}
+	
 
 	@Transactional
 	public ManagerDTO update(Long id, ManagerDTO dto) {
 		try {
 			Manager entity = repository.getReferenceById(id);
-			entity.setName(dto.getName());
-			entity.setBirth(dto.getBirth());
-			entity.setCpf(dto.getCep());
-			entity.setRg(dto.getRg());
-			entity.setPhone1(dto.getPhone1());
-			entity.setPhone2(dto.getPhone2());
-			entity.setCep(dto.getCep());
-			entity.setStreet(dto.getStreet());
-			entity.setNumber(dto.getNumber());
-			entity.setCity(dto.getCity());
-			entity.setStates(dto.getStates());
-			entity.setEmail(dto.getEmail());
-			entity.setUsername(dto.getUsername());
-			entity.setPassword(dto.getPassword());
+			copyDtoEntity(dto, entity);				
 			entity = repository.save(entity);		
 			return new ManagerDTO(entity);
 		}catch(EntityNotFoundException e) {
@@ -94,5 +69,22 @@ public class ManagerService {
 		catch(DataIntegrityViolationException e) {
 			throw new DataBaseException("Integreity violation");
 		}
+	}
+	
+	private void copyDtoEntity(ManagerDTO dto, Manager entity) {
+		entity.setName(dto.getName());
+		entity.setBirth(dto.getBirth());
+		entity.setCpf(dto.getCep());
+		entity.setRg(dto.getRg());
+		entity.setPhone1(dto.getPhone1());
+		entity.setPhone2(dto.getPhone2());
+		entity.setCep(dto.getCep());
+		entity.setStreet(dto.getStreet());
+		entity.setNumber(dto.getNumber());
+		entity.setCity(dto.getCity());
+		entity.setStates(dto.getStates());
+		entity.setEmail(dto.getEmail());
+		entity.setUsername(dto.getUsername());
+		entity.setPassword(dto.getPassword());		
 	}
 }
