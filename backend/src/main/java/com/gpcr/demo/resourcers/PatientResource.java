@@ -19,6 +19,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.gpcr.demo.dto.PatientDTO;
 import com.gpcr.demo.services.PatientService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping(value = "/patients")
 public class PatientResource {
@@ -39,14 +41,14 @@ public class PatientResource {
 	}
 	
 	@PostMapping
-	public ResponseEntity<PatientDTO> insert(@RequestBody PatientDTO dto){
+	public ResponseEntity<PatientDTO> insert(@Valid @RequestBody PatientDTO dto){
 		dto = service.insert(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
 		return ResponseEntity.created(uri).body(dto);
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<PatientDTO> update(@PathVariable Long id, @RequestBody PatientDTO dto){
+	public ResponseEntity<PatientDTO> update(@PathVariable Long id,@Valid @RequestBody PatientDTO dto){
 		dto = service.update(id, dto);
 		return ResponseEntity.ok().body(dto);
 	}

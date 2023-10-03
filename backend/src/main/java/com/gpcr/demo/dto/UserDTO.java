@@ -6,26 +6,34 @@ import java.util.Set;
 
 import com.gpcr.demo.entities.User;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 public class UserDTO implements Serializable{
 	private static final long serialVersionUID = 1L;	
 	
 	private Long id;
+	
+	@NotBlank(message = "Campo obigatório")
 	private String firstName;
 	private String lastName;
 	
+	@Email(message = "Informar um e-mail válido")
+	@NotBlank(message = "Campo obigatório")
 	private String email;
 	
 	Set<RoleDTO> roles = new HashSet<>();
-	public UserDTO() {}
-
-	public UserDTO(Long id, String firstName, String lastName, String email, String password) {
+	public UserDTO() {}	
+	
+	public UserDTO(Long id, String firstName, String lastName, String email, Set<RoleDTO> roles) {
+		super();
 		this.id = id;
 		this.firstName = firstName;
-		this.lastName = lastName;		
+		this.lastName = lastName;
 		this.email = email;
+		this.roles = roles;
 	}
-	
+
 	public UserDTO(User entity) {
 		id = entity.getId();
 		firstName = entity.getFirstName();

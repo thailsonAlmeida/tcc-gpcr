@@ -4,11 +4,18 @@ import java.io.Serializable;
 
 import com.gpcr.demo.entities.Professional;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+
 public class ProfessionalDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
+	@NotBlank(message = "Campo obigatório")
 	private String name;
+	
+	@NotBlank(message = "Campo obigatório")
+	@Email(message = "Informar um e-mail válido")
 	private String email;
 	private String phone1;
 	private String phone2;
@@ -18,8 +25,12 @@ public class ProfessionalDTO implements Serializable{
 	private String city;
 	private String states;
 	private String birth;
+	
+	@NotBlank(message = "Campo obigatório")
 	private String cpf;
-	private String rg;	
+	private String rg;
+	
+	@NotBlank(message = "Campo obigatório")
 	private String registry;    
     private String username;
     private String password;

@@ -4,9 +4,13 @@ import java.io.Serializable;
 
 import com.gpcr.demo.entities.Role;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class RoleDTO implements Serializable{
 	private static final long serialVersionUID = 1L;	
 	private Long id;
+	
+	@NotBlank(message = "Campo obigatório")
 	private String authority;
 	
 	public RoleDTO() {}

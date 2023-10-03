@@ -19,6 +19,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.gpcr.demo.dto.ManagerDTO;
 import com.gpcr.demo.services.ManagerService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping(value = "/managers")
 public class ManagerResource {
@@ -39,14 +41,14 @@ public class ManagerResource {
 	}
 	
 	@PostMapping
-	public ResponseEntity<ManagerDTO> insert(@RequestBody ManagerDTO dto){
+	public ResponseEntity<ManagerDTO> insert(@Valid @RequestBody ManagerDTO dto){
 		dto = service.insert(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
 		return ResponseEntity.created(uri).body(dto);
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<ManagerDTO> update(@PathVariable Long id, @RequestBody ManagerDTO dto){
+	public ResponseEntity<ManagerDTO> update(@PathVariable Long id,@Valid @RequestBody ManagerDTO dto){
 		dto = service.update(id, dto);
 		return ResponseEntity.ok().body(dto);
 	}

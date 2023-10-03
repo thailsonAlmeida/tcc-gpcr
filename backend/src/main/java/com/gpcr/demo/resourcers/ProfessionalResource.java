@@ -19,6 +19,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.gpcr.demo.dto.ProfessionalDTO;
 import com.gpcr.demo.services.ProfessionalService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping(value = "/professionals")
 public class ProfessionalResource {
@@ -39,14 +41,14 @@ public class ProfessionalResource {
 	}
 	
 	@PostMapping
-	public ResponseEntity<ProfessionalDTO> insert(@RequestBody ProfessionalDTO dto){
+	public ResponseEntity<ProfessionalDTO> insert(@Valid @RequestBody ProfessionalDTO dto){
 		dto = service.insert(dto);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
 		return ResponseEntity.created(uri).body(dto);
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<ProfessionalDTO> update(@PathVariable Long id, @RequestBody ProfessionalDTO dto){
+	public ResponseEntity<ProfessionalDTO> update(@PathVariable Long id, @Valid @RequestBody ProfessionalDTO dto){
 		dto = service.update(id, dto);
 		return ResponseEntity.ok().body(dto);
 	}
