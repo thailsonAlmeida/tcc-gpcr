@@ -16,37 +16,39 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.gpcr.demo.dto.PatientDTO;
-import com.gpcr.demo.services.PatientService;
+import com.gpcr.demo.dto.UserDTO;
+import com.gpcr.demo.dto.UserInsertDTO;
+import com.gpcr.demo.services.UserService;
 
 @RestController
-@RequestMapping(value = "/patients")
-public class PatientResource {
+@RequestMapping(value = "/users")
+public class UserResource {
 	
 	@Autowired
-	private PatientService service;
+	private UserService service;
 	
 	@GetMapping
-	public ResponseEntity<Page<PatientDTO>> findAll(Pageable pageable){		
-		Page<PatientDTO> list = service.findAllPaged(pageable);		
+	public ResponseEntity<Page<UserDTO>> findAll(Pageable pageable){		
+		Page<UserDTO> list = service.findAllPaged(pageable);		
 		return ResponseEntity.ok().body(list);
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<PatientDTO> findById(@PathVariable Long id){
-		PatientDTO dto = service.findById(id);
+	public ResponseEntity<UserDTO> findById(@PathVariable Long id){
+		UserDTO dto = service.findById(id);
 		return ResponseEntity.ok().body(dto);
 	}
 	
 	@PostMapping
-	public ResponseEntity<PatientDTO> insert(@RequestBody PatientDTO dto){
-		dto = service.insert(dto);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dto.getId()).toUri();
-		return ResponseEntity.created(uri).body(dto);
+	public ResponseEntity<UserDTO> insert(@RequestBody UserInsertDTO dto){
+		UserDTO newDTO = service.insert(dto);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+				.path("/{id}").buildAndExpand(newDTO.getId()).toUri();
+		return ResponseEntity.created(uri).body(newDTO);
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<PatientDTO> update(@PathVariable Long id, @RequestBody PatientDTO dto){
+	public ResponseEntity<UserDTO> update(@PathVariable Long id, @RequestBody UserDTO dto){
 		dto = service.update(id, dto);
 		return ResponseEntity.ok().body(dto);
 	}

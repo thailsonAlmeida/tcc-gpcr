@@ -51,3 +51,18 @@ INSERT INTO tb_procedure(id_manager, id_patient, id_professional, data, start, f
 INSERT INTO tb_procedure(id_manager, id_patient, id_professional, data, start, finish, type, description, status ) VALUES (1, 1, 1, '22/09/2023', '10:00', '11:00', 'Evolutivo', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ', 'confirmar');
 INSERT INTO tb_procedure(id_manager, id_patient, id_professional, data, start, finish, type, description, status ) VALUES (1, 1, 1, '23/09/2023', '10:00', '11:00', 'Evolutivo', 'Many desktop publishing packages and web page editors now use Lorem Ipsum ', 'confirmar');
 INSERT INTO tb_procedure(id_manager, id_patient, id_professional, data, start, finish, type, description, status ) VALUES (1, 1, 1, '24/09/2023', '10:00', '11:00', 'Evolutivo', 'Various versions have evolved over the years, sometimes by accident,', 'confirmar');
+
+/*User*/
+INSERT INTO tb_user (first_name, last_name, email, password) VALUES ('Thais', 'Fragoso', 'thais@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
+INSERT INTO tb_user (first_name, last_name, email, password) VALUES ('Elyda', 'Palmer', 'elyda@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
+INSERT INTO tb_user (first_name, last_name, email, password) VALUES ('Thailson', 'Dow', 'thailson@gmail.com', '$2a$10$eACCYoNOHEqXve8aIWT8Nu3PkMXWBaOxJ9aORUYzfMQCbVBIhZ8tG');
+
+INSERT INTO tb_role (authority) VALUES ('ROLE_MANAGER');
+INSERT INTO tb_role (authority) VALUES ('ROLE_PROFESSIONAL');
+INSERT INTO tb_role (authority) VALUES ('ROLE_ADMIN');
+
+INSERT INTO tb_user_role(user_id, role_id) VALUES(1,1);
+INSERT INTO tb_user_role(user_id, role_id) VALUES(2,1);
+INSERT INTO tb_user_role(user_id, role_id) VALUES(3,1);
+INSERT INTO tb_user_role(user_id, role_id) VALUES(3,2);
+

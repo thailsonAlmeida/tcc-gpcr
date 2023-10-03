@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
-abstract class Person implements Serializable   {
+abstract class Person implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
