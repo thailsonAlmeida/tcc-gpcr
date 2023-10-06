@@ -2,9 +2,9 @@ package com.gpcr.demo.dto;
 
 import java.io.Serializable;
 
-import com.gpcr.demo.entities.Role;
+import javax.validation.constraints.NotBlank;
 
-import jakarta.validation.constraints.NotBlank;
+import com.gpcr.demo.entities.Role;
 
 public class RoleDTO implements Serializable{
 	private static final long serialVersionUID = 1L;	

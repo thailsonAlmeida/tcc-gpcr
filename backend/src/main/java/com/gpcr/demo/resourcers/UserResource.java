@@ -1,6 +1,9 @@
 package com.gpcr.demo.resourcers;
 
+
 import java.net.URI;
+
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -20,8 +23,6 @@ import com.gpcr.demo.dto.UserDTO;
 import com.gpcr.demo.dto.UserInsertDTO;
 import com.gpcr.demo.dto.UserUpdateDTO;
 import com.gpcr.demo.services.UserService;
-
-import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/users")

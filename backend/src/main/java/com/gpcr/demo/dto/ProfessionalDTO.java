@@ -2,10 +2,10 @@ package com.gpcr.demo.dto;
 
 import java.io.Serializable;
 
-import com.gpcr.demo.entities.Professional;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
+import com.gpcr.demo.entities.Professional;
 
 public class ProfessionalDTO implements Serializable{
 	private static final long serialVersionUID = 1L;

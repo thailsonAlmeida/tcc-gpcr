@@ -2,6 +2,8 @@ package com.gpcr.demo.services;
 
 import java.util.Optional;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -15,8 +17,6 @@ import com.gpcr.demo.entities.Patient;
 import com.gpcr.demo.repositories.PatientRepository;
 import com.gpcr.demo.services.exceptions.DataBaseException;
 import com.gpcr.demo.services.exceptions.ResouceNotFoundException;
-
-import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class PatientService {
@@ -48,7 +48,7 @@ public class PatientService {
 	@Transactional
 	public PatientDTO update(Long id, PatientDTO dto) {
 		try{
-			Patient entity = repository.getReferenceById(id);
+			Patient entity = repository.getOne(id);
 			copyDtoEntity(dto, entity);
 		    entity = repository.save(entity);
 			return new PatientDTO(entity);			

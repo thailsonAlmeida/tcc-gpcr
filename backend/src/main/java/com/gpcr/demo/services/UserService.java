@@ -1,7 +1,8 @@
 package com.gpcr.demo.services;
 
-
 import java.util.Optional;
+
+import javax.persistence.EntityNotFoundException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,8 +28,6 @@ import com.gpcr.demo.repositories.RoleRepository;
 import com.gpcr.demo.repositories.UserRepository;
 import com.gpcr.demo.services.exceptions.DataBaseException;
 import com.gpcr.demo.services.exceptions.ResouceNotFoundException;
-
-import jakarta.persistence.EntityNotFoundException;
 
 
 @Service
@@ -71,7 +70,7 @@ public class UserService implements UserDetailsService {
 	@Transactional
 	public UserDTO update(Long id, UserUpdateDTO dto) {
 		try {
-			User entity = repository.getReferenceById(id);
+			User entity = repository.getOne(id);
 			copyDtoEntity(dto, entity);				
 			entity = repository.save(entity);		
 			return new UserDTO(entity);
@@ -88,7 +87,7 @@ public class UserService implements UserDetailsService {
 			throw new ResouceNotFoundException("ID not found " + id);
 		}
 		catch(DataIntegrityViolationException e) {
-			throw new DataBaseException("Integreity violation");
+			throw new DataBaseException("Integrety violation");
 		}
 	}
 	
@@ -99,7 +98,7 @@ public class UserService implements UserDetailsService {
 		
 		entity.getRoles().clear();
 		for (RoleDTO roleDto : dto.getRoles()) {
-			Role role = roleRepository.getReferenceById(roleDto.getId());
+			Role role = roleRepository.getOne(roleDto.getId());
 			entity.getRoles().add(role);
 		}
 	}

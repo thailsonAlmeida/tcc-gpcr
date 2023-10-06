@@ -3,15 +3,15 @@ package com.gpcr.demo.services.validation;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.gpcr.demo.dto.UserInsertDTO;
 import com.gpcr.demo.entities.User;
 import com.gpcr.demo.repositories.UserRepository;
 import com.gpcr.demo.resourcers.exceptions.FieldMessage;
-
-import jakarta.validation.ConstraintValidator;
-import jakarta.validation.ConstraintValidatorContext;
 
 public class UserInsertValidator implements ConstraintValidator<UserInsertValid, UserInsertDTO> {
 	
@@ -39,4 +39,5 @@ public class UserInsertValidator implements ConstraintValidator<UserInsertValid,
 		}
 		return list.isEmpty();
 	}
+
 }

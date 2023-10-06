@@ -2,6 +2,8 @@ package com.gpcr.demo.services;
 
 import java.util.Optional;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -15,8 +17,6 @@ import com.gpcr.demo.entities.Professional;
 import com.gpcr.demo.repositories.ProfessionalRepository;
 import com.gpcr.demo.services.exceptions.DataBaseException;
 import com.gpcr.demo.services.exceptions.ResouceNotFoundException;
-
-import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class ProfessionalService {	
@@ -49,7 +49,7 @@ public class ProfessionalService {
 	@Transactional
 	public ProfessionalDTO update(Long id, ProfessionalDTO dto) {
 		try{
-			Professional entity = repository.getReferenceById(id);
+			Professional entity = repository.getOne(id);
 			copyDtoEntity(dto, entity);	
 		    entity = repository.save(entity);
 			return new ProfessionalDTO(entity);			

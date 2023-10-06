@@ -2,6 +2,8 @@ package com.gpcr.demo.services;
 
 import java.util.Optional;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -15,9 +17,6 @@ import com.gpcr.demo.entities.Manager;
 import com.gpcr.demo.repositories.ManagerRepository;
 import com.gpcr.demo.services.exceptions.DataBaseException;
 import com.gpcr.demo.services.exceptions.ResouceNotFoundException;
-
-import jakarta.persistence.EntityNotFoundException;
-
 
 @Service
 public class ManagerService {
@@ -50,7 +49,7 @@ public class ManagerService {
 	@Transactional
 	public ManagerDTO update(Long id, ManagerDTO dto) {
 		try {
-			Manager entity = repository.getReferenceById(id);
+			Manager entity = repository.getOne(id);
 			copyDtoEntity(dto, entity);				
 			entity = repository.save(entity);		
 			return new ManagerDTO(entity);
