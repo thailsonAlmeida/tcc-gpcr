@@ -1,6 +1,7 @@
 package com.gpcr.demo.dto;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -24,7 +25,7 @@ public class PatientDTO implements Serializable{
 	private int number;
 	private String city;
 	private String states;
-	private String birth;
+	private LocalDate birth;
 	
 	@NotBlank(message = "Campo obigatório")
 	private String cpf;
@@ -35,7 +36,7 @@ public class PatientDTO implements Serializable{
     public PatientDTO() {}
     
 	public PatientDTO(Long id, String name, String email, String phone1, String phone2, String cep, String street,
-			int number, String city, String states, String birth, String cpf, String rg, String covenant_plan,
+			int number, String city, String states, LocalDate birth, String cpf, String rg, String covenant_plan,
 			String covenant_number) {
 		super();
 		this.id = id;
@@ -153,11 +154,11 @@ public class PatientDTO implements Serializable{
 		this.states = states;
 	}
 
-	public String getBirth() {
+	public LocalDate getBirth() {
 		return birth;
 	}
 
-	public void setBirth(String birth) {
+	public void setBirth(LocalDate birth) {
 		this.birth = birth;
 	}
 

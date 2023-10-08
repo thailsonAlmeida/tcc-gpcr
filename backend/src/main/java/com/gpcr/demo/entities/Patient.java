@@ -1,6 +1,7 @@
 package com.gpcr.demo.entities;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
@@ -21,7 +22,7 @@ public class Patient extends Person implements Serializable {
     
     public Patient() {}
 
-	public Patient(Long id_patient, String rg, String cpf, String birth, String name, String cep, String street, int number, String city,
+	public Patient(Long id_patient, String rg, String cpf, LocalDate birth, String name, String cep, String street, int number, String city,
 			String states, String phone1, String phone2, String email, String covenant_plan, String covenant_number) {
 		super();
 		this.id = id_patient;
@@ -41,7 +42,7 @@ public class Patient extends Person implements Serializable {
 		this.covenant_number = covenant_number;
 	}
 
-	public Patient(Long id_patient, String cpf, String birth, String name, String email, String covenant_plan, String covenant_number) {
+	public Patient(Long id_patient, String cpf, LocalDate birth, String name, String email, String covenant_plan, String covenant_number) {
 		super();
 		this.cpf = cpf;
 		this.birth = birth;
@@ -67,11 +68,11 @@ public class Patient extends Person implements Serializable {
 		this.cpf = cpf;
 	}
 
-	public String getBirth() {
+	public LocalDate getBirth() {
 		return birth;
 	}
 
-	public void setBirth(String birth) {
+	public void setBirth(LocalDate birth) {
 		this.birth = birth;
 	}
 

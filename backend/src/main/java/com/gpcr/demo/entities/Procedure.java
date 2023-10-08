@@ -1,5 +1,7 @@
 package com.gpcr.demo.entities;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 import javax.persistence.Entity;
@@ -17,9 +19,9 @@ public class Procedure {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_procedure;
-    private String data;
-    private String start;
-    private String finish;
+    private LocalDate data;
+    private LocalDateTime start;
+    private LocalDateTime finish;
     private String type;
     private String status;
     private String description;
@@ -36,7 +38,7 @@ public class Procedure {
     
     public Procedure() {}
     
-	public Procedure(String data, String start, String finish, String type, String status, String description,
+	public Procedure(LocalDate data, LocalDateTime start, LocalDateTime finish, String type, String status, String description,
 			Professional professional, Patient patient, Manager manager) {
 		super();
 		this.data = data;
@@ -50,27 +52,27 @@ public class Procedure {
 		this.manager = manager;
 	}
 
-	public String getData() {
+	public LocalDate getData() {
 		return data;
 	}
 
-	public void setData(String data) {
+	public void setData(LocalDate data) {
 		this.data = data;
 	}
 
-	public String getStart() {
+	public LocalDateTime getStart() {
 		return start;
 	}
 
-	public void setStart(String start) {
+	public void setStart(LocalDateTime start) {
 		this.start = start;
 	}
 
-	public String getFinish() {
+	public LocalDateTime getFinish() {
 		return finish;
 	}
 
-	public void setFinish(String finish) {
+	public void setFinish(LocalDateTime finish) {
 		this.finish = finish;
 	}
 

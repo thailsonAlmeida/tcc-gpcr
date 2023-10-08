@@ -1,6 +1,7 @@
 package com.gpcr.demo.entities;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
@@ -13,16 +14,14 @@ import javax.persistence.Table;
 public class Professional extends Person implements Serializable {
 	private static final long serialVersionUID = 1L;	
 	   
-    private String registry;    
-    private String username;
-    private String password;
+    private String registry; 
     
     @OneToMany(mappedBy = "professional")
     private List<Procedure> procedures;
     
     public Professional () {}
 
-	public Professional(Long id_professional, String rg, String cpf, String registry, String birth, String name, String cep, String street,
+	public Professional(Long id_professional, String rg, String cpf, String registry, LocalDate birth, String name, String cep, String street,
 			int number, String city, String states, String phone1, String phone2, String email, String username, String password) {
 		super();
 		this.id = id_professional;
@@ -39,16 +38,12 @@ public class Professional extends Person implements Serializable {
 		this.phone1 = phone1;
 		this.phone2 = phone2;
 		this.email = email;
-		this.username = username;
-		this.password = password;
 	}
 
 	public Professional(Long id_professional, String email, String username, String password) {
 		super();
 		this.id = id_professional;
 		this.email = email;
-		this.username = username;
-		this.password = password;
 	}
 
 	public String getRg() {
@@ -75,11 +70,11 @@ public class Professional extends Person implements Serializable {
 		this.registry = registry;
 	}
 
-	public String getBirth() {
+	public LocalDate getBirth() {
 		return birth;
 	}
 
-	public void setBirth(String birth) {
+	public void setBirth(LocalDate birth) {
 		this.birth = birth;
 	}
 
@@ -154,22 +149,6 @@ public class Professional extends Person implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}	
 
 	public Long getId_professional() {
 		return id;

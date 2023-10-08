@@ -40,7 +40,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 	private static final String[] ADMIN = { 
 			"/users/**", 
 			"/managers/**", 
-			"/professionals**", 
+			"/professionals/**", 
 			"/patients/**", 
 			"/procedures/**",
 			"/commissions/**",

@@ -71,9 +71,7 @@ public class ProfessionalService {
 		entity.setBirth(dto.getBirth());
 		entity.setCpf(dto.getCpf());
 		entity.setRg(dto.getRg());
-		entity.setRegistry(dto.getRegistry());		
-		entity.setUsername(dto.getUsername());   
-	    entity.setPassword(dto.getPassword());
+		entity.setRegistry(dto.getRegistry());
 		
 	}
 

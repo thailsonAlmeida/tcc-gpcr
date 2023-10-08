@@ -1,6 +1,7 @@
 package com.gpcr.demo.dto;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -24,23 +25,20 @@ public class ProfessionalDTO implements Serializable{
 	private int number;
 	private String city;
 	private String states;
-	private String birth;
+	private LocalDate birth;
 	
 	@NotBlank(message = "Campo obigatório")
 	private String cpf;
 	private String rg;
 	
 	@NotBlank(message = "Campo obigatório")
-	private String registry;    
-    private String username;
-    private String password;
+	private String registry;   
     
     public ProfessionalDTO() {}   
     
 
 	public ProfessionalDTO(Long id, String name, String email, String phone1, String phone2, String cep, String street,
-			int number, String city, String states, String birth, String cpf, String rg, String registry,
-			String username, String password) {
+			int number, String city, String states, LocalDate birth, String cpf, String rg, String registry) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -56,8 +54,6 @@ public class ProfessionalDTO implements Serializable{
 		this.cpf = cpf;
 		this.rg = rg;
 		this.registry = registry;
-		this.username = username;
-		this.password = password;
 	}
 
 	public ProfessionalDTO(Professional entity) {
@@ -75,8 +71,6 @@ public class ProfessionalDTO implements Serializable{
 		this.cpf = entity.getCpf();
 		this.rg = entity.getRg();
 		this.registry = entity.getRegistry();		
-		this.username = entity.getUsername();
-		this.password = entity.getPassword();		
 	}
 
 
@@ -160,11 +154,11 @@ public class ProfessionalDTO implements Serializable{
 		this.states = states;
 	}
 
-	public String getBirth() {
+	public LocalDate getBirth() {
 		return birth;
 	}
 
-	public void setBirth(String birth) {
+	public void setBirth(LocalDate birth) {
 		this.birth = birth;
 	}
 
@@ -191,23 +185,5 @@ public class ProfessionalDTO implements Serializable{
 	public void setRegistry(String registry) {
 		this.registry = registry;
 	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-    
-    
 
 }

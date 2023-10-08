@@ -1,6 +1,7 @@
 package com.gpcr.demo.entities;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
@@ -11,10 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name= "tb_manager")
 public class Manager extends Person implements Serializable{
-	private static final long serialVersionUID = 1L;	
-	   
-    private String username;
-    private String password;
+	private static final long serialVersionUID = 1L;
     
     @OneToMany(mappedBy = "manager")
     private List<Procedure> procedures;
@@ -22,7 +20,7 @@ public class Manager extends Person implements Serializable{
     public Manager() {}
 
 	public Manager(Long id_manager, String name, String email, String phone1, String phone2, String cep, String street, int number,
-			String city, String states, String birth, String cpf, String username, String password) {
+			String city, String states, LocalDate birth, String cpf) {
 		super();
 		this.id = id_manager;
 		this.name = name;
@@ -36,20 +34,16 @@ public class Manager extends Person implements Serializable{
 		this.states = states;
 		this.birth = birth;
 		this.cpf = cpf;
-		this.username = username;
-		this.password = password;
 	}
 
 	public Manager(Long id_manager, String email, String username, String password) {
 		super();
 		this.id = id_manager;
 		this.email = email;
-		this.username = username;
-		this.password = password;
 	}
 
 	public Manager(Long id_manager, String name, String email, String phone1, String phone2, String cep, String street, int number,
-			String city, String states, String birth, String cpf, String rg) {
+			String city, String states, LocalDate birth, String cpf, String rg) {
 		super();
 		this.id = id_manager;
 		this.name = name;
@@ -138,11 +132,11 @@ public class Manager extends Person implements Serializable{
 		this.states = states;
 	}
 
-	public String getBirth() {
+	public LocalDate getBirth() {
 		return birth;
 	}
 
-	public void setBirth(String birth) {
+	public void setBirth(LocalDate birth) {
 		this.birth = birth;
 	}
 
@@ -153,22 +147,6 @@ public class Manager extends Person implements Serializable{
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}	
 
 	public Long getId_manager() {
 		return id;

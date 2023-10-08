@@ -82,8 +82,6 @@ public class ManagerService {
 		entity.setNumber(dto.getNumber());
 		entity.setCity(dto.getCity());
 		entity.setStates(dto.getStates());
-		entity.setEmail(dto.getEmail());
-		entity.setUsername(dto.getUsername());
-		entity.setPassword(dto.getPassword());		
+		entity.setEmail(dto.getEmail());	
 	}
 }

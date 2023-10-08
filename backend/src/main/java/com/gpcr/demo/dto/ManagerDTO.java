@@ -1,6 +1,7 @@
 package com.gpcr.demo.dto;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -25,18 +26,16 @@ public class ManagerDTO implements Serializable{
 	private int number;
 	private String city;
 	private String states;
-	private String birth;
+	private LocalDate birth;
 	
 	@NotBlank(message = "Campo obigatório")
 	private String cpf;
 	private String rg;
-	private String username;
-    private String password;
     
     public ManagerDTO() {}
 
 	public ManagerDTO(Long id, String name, String email, String phone1, String phone2, String cep, String street,
-			int number, String city, String states, String birth, String cpf, String rg, String username,
+			int number, String city, String states, LocalDate birth, String cpf, String rg, String username,
 			String password) {
 		super();
 		this.id = id;
@@ -52,8 +51,6 @@ public class ManagerDTO implements Serializable{
 		this.birth = birth;
 		this.cpf = cpf;
 		this.rg = rg;
-		this.username = username;
-		this.password = password;
 	}
 	
 	public ManagerDTO(Manager entity) {
@@ -70,8 +67,6 @@ public class ManagerDTO implements Serializable{
 		this.birth = entity.getBirth();
 		this.cpf = entity.getCpf();
 		this.rg = entity.getRg();
-		this.username = entity.getUsername();
-		this.password = entity.getPassword();
 	}
 
 	public Long getId() {
@@ -154,11 +149,11 @@ public class ManagerDTO implements Serializable{
 		this.states = states;
 	}
 
-	public String getBirth() {
+	public LocalDate getBirth() {
 		return birth;
 	}
 
-	public void setBirth(String birth) {
+	public void setBirth(LocalDate birth) {
 		this.birth = birth;
 	}
 
@@ -178,21 +173,6 @@ public class ManagerDTO implements Serializable{
 		this.rg = rg;
 	}
 
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
     
 	
 

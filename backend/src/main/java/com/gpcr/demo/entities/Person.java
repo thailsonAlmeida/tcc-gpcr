@@ -1,6 +1,8 @@
 package com.gpcr.demo.entities;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,7 +24,7 @@ abstract class Person implements Serializable {
 	int number;
 	String city;
 	String states;
-	String birth;
+	LocalDate birth;
 	String cpf;
 	String rg;
 
