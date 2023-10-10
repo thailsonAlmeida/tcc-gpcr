@@ -1,0 +1,50 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet');
+
+:root {
+  --color-turquoise: #edc147;
+  --color-coral: #4760ed;
+  --color-dimgray: #4c5d67;
+  --color-darkslategray: #546c77;
+  --color-black: #2F2E41;
+  --color-bg-light :#ffffff;
+  --color-bg-panel: #F5F5F7;
+  --row-form-lis-old: #2f2e410f;
+  --row-form-lis-even: #2f2e4121;
+}
+
+body, html {
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  font-family: 'Roboto', sans-serif, 'Open Sans', sans-serif;
+}
+
+body {
+  background: var(--color-bg-light);
+}
+
+a {
+  text-decoration: none;
+}
+
+.text-primary {
+  color: var(--color-black);
+  font-weight: 600;
+}
+
+.text-secondary {
+  color: var(--color-coral);
+  font-weight: 600;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
