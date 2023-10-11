@@ -9,11 +9,11 @@
 		<version>2.4.4</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.devsuperior</groupId>
-	<artifactId>dscatalog</artifactId>
+	<groupId>com.gpcrr</groupId>
+	<artifactId>gpcr</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>dscatalog</name>
-	<description>DSCatalog Bootcamp DevSuperior</description>
+	<name>GPCR</name>
+	<description>Gestão de Procedimento Clinico e Relatório</description>
 
 	<properties>
 		<java.version>17</java.version>
