@@ -1,23 +1,17 @@
-package com.gpcr.demo.entities;
+package com.gpcr.demo.dto;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Objects;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import com.gpcr.demo.entities.Manager;
+import com.gpcr.demo.entities.Patient;
+import com.gpcr.demo.entities.Procedure;
+import com.gpcr.demo.entities.Professional;
 
-@Entity
-@Table(name= "tb_procedure")
-public class Procedure {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ProcedureDTO implements Serializable{
+	private static final long serialVersionUID = 1L;
+
     private Long id_procedure;
     private LocalDate data;
     private LocalDateTime start;
@@ -26,21 +20,14 @@ public class Procedure {
     private String status;
     private String description;
     
-    @ManyToOne
-    @JoinColumn(name = "id_professional", nullable = false)
-    private Professional professional;
-    @ManyToOne
-    @JoinColumn(name = "id_patient", nullable = false)
-    private Patient patient;
-    @ManyToOne
-    @JoinColumn(name = "id_manager", nullable = false)
-    private Manager manager;
-    
-    public Procedure() {}    
-    
 
+    private Professional id_professional;
+    private Patient id_patient;
+    private Manager id_manager;
+    
+    public ProcedureDTO() {}
 
-	public Procedure(Long id_procedure, LocalDate data, LocalDateTime start, LocalDateTime finish, String type,
+	public ProcedureDTO(Long id_procedure, LocalDate data, LocalDateTime start, LocalDateTime finish, String type,
 			String status, String description) {
 		super();
 		this.id_procedure = id_procedure;
@@ -52,7 +39,7 @@ public class Procedure {
 		this.description = description;
 	}
 	
-	public Procedure(Long id_procedure, LocalDate data, LocalDateTime start, LocalDateTime finish, String type,
+	public ProcedureDTO(Long id_procedure, LocalDate data, LocalDateTime start, LocalDateTime finish, String type,
 			String status, String description, Professional professional) {
 		super();
 		this.id_procedure = id_procedure;
@@ -62,10 +49,28 @@ public class Procedure {
 		this.type = type;
 		this.status = status;
 		this.description = description;
-		this.professional = professional;
+		this.id_professional = professional;
 	}
 
 
+	public ProcedureDTO(Procedure entity) {
+		super();
+		this.id_procedure = entity.getId_procedure();
+		this.data = entity.getData();
+		this.start = entity.getStart();
+		this.finish = entity.getFinish();
+		this.type = entity.getType();
+		this.status = entity.getStatus();
+		this.description = entity.getDescription();
+	}
+
+	public Long getId_procedure() {
+		return id_procedure;
+	}
+
+	public void setId_procedure(Long id_procedure) {
+		this.id_procedure = id_procedure;
+	}
 
 	public LocalDate getData() {
 		return data;
@@ -113,68 +118,36 @@ public class Procedure {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}	
-	
-	public Long getId_procedure() {
-		return id_procedure;
 	}
-
-	public void setId_procedure(Long id_procedure) {
-		this.id_procedure = id_procedure;
-	}		
-
-	
 
 	public Professional getId_professional() {
-		return professional;
+		return id_professional;
 	}
-
-
 
 	public void setId_professional(Professional id_professional) {
-		this.professional = id_professional;
+		this.id_professional = id_professional;
 	}
-
-
 
 	public Patient getId_patient() {
-		return patient;
+		return id_patient;
 	}
-
-
 
 	public void setId_patient(Patient id_patient) {
-		this.patient = id_patient;
+		this.id_patient = id_patient;
 	}
-
-
 
 	public Manager getId_manager() {
-		return manager;
+		return id_manager;
 	}
+
 
 
 
 	public void setId_manager(Manager id_manager) {
-		this.manager = id_manager;
+		this.id_manager = id_manager;
 	}
 
 
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(id_procedure);
-	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Procedure other = (Procedure) obj;
-		return Objects.equals(id_procedure, other.id_procedure);
-	}
 }

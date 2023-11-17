@@ -1,0 +1,36 @@
+.gpcr-panel-title {
+    margin-top: 50px;
+    font-weight: 700;
+    margin-left: 3px;
+}
+ 
+/*FORM************************************************/
+.gpcr-panel-form {
+    margin-top: 25px;
+}
+
+
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border-top: 1px solid #ddd;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 16px;
+}
+
+tr:nth-child(even) {
+    background-color: #dcdcde29;
+}
+
+.gpcr-product-listing-btn {
+    height: 20px;
+    width: auto;
+    cursor: pointer;
+    margin: 0 5px;
+  }

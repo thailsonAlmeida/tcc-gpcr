@@ -1,0 +1,34 @@
+.gpcr-btn-page-container {
+    width: 100%;
+    display: grid;
+    grid-gap: 20px;
+  }
+  
+  @media (min-width: 576px) {
+    .gpcr-btn-page-container {
+      width: 220px;
+    }
+  }
+  
+  .gpcr-btn {
+    width: 100%;
+    height: 42px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .gpcr-btn-next-page {
+    border: 1px solid var(--gprc-color-bg-secondary6);
+    padding: 10px;
+    border-radius: 4px;
+    color: var(--gprc-color-bg-secondary6);
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+  }

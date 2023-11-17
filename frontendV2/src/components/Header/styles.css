@@ -1,0 +1,4 @@
+.gpcr-header {
+    background-color: var(--gpcr-color-bg-secondary);
+    color: var(--gpcr-color-font-primary);
+  }

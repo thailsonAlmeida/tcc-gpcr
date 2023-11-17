@@ -1,0 +1,12 @@
+.gpcr-panel-button-primary {
+    background: var(--gpcr-color-bg-secondary);
+    margin-top: 25px;
+    width: 150px;
+    height: 40px;
+    border-radius: 8px;
+    color: var(--gpcr-color-font-tertiary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
