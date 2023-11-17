@@ -27,8 +27,8 @@ export default function PatientListing() {
                 <tr>
                   <th className="gpcr-txt-left">Nome</th>
                   <th className="gpcr-tb768">CPF</th>
-                  <th className="gpcr-txt-left">Telefone 1</th>
-                  <th className="gpcr-tb576">Telefone 2</th>
+                  <th className="gpcr-txt-left">Telefone</th>
+                  <th className="gpcr-tb576">Telefone</th>
                   <th>Ações</th>
                 </tr>
               </thead>
