@@ -10,32 +10,25 @@ import { useEffect, useState } from "react";
 import { PatientDTO } from "../../../models/patients";
 
 export default function PatientListing() {
-
-  const [ patients, setPatients ] = useState<PatientDTO[]>([]);
+  const [patients, setPatients] = useState<PatientDTO[]>([]);
 
   useEffect(() => {
-    patientService.findAll()
-      .then(response => {
-        setPatients(response.data.content);
-      });
-  },[]);
+    patientService.findAll().then((response) => {
+      setPatients(response.data.content);
+    });
+  }, []);
 
   return (
     <>
-
       <main>
-
         <section className="gpcr-panel">
-
           <div className="gpcr-panel-title">Paciente</div>
 
           <ButtonPrimary text="Cadastrar" />
           <SearchBar />
 
           <div className="gpcr-panel-form">
-
             <table className="gpcr-table gpcr-mb20 gpcr-mt20">
-
               <thead>
                 <tr>
                   <th className="gpcr-txt-left">Nome</th>
@@ -47,47 +40,37 @@ export default function PatientListing() {
               </thead>
 
               <tbody>
-                {
-                  patients.map(
-                    patient => (
-                      <tr key={patient.id}>
-                        <td className="gpcr-txt-left">{patient.name}</td>
-                        <td className="gpcr-tb768">{patient.cpf}</td>
-                        <td className="gpcr-txt-left">{patient.phone1}</td>
-                        <td className="gpcr-tb576">{patient.phone2}</td>
-                        <td>
-                          <img
-                            className="gpcr-product-listing-btn"
-                            src={iconEdit}
-                            alt="Editar"
-                          />
-                          <img
-                            className="gpcr-product-listing-btn"
-                            src={iconDelete}
-                            alt="Deletar"
-                          />
-                          <img
-                            className="gpcr-product-listing-btn"
-                            src={iconRelatory}
-                            alt="Relatorio"
-                          />
-                        </td>
-                      </tr>
-                    )
-                  )
-                }
-
-
+                {patients.map((patient) => (
+                  <tr key={patient.id}>
+                    <td className="gpcr-txt-left">{patient.name}</td>
+                    <td className="gpcr-tb768">{patient.cpf}</td>
+                    <td className="gpcr-txt-left">{patient.phone1}</td>
+                    <td className="gpcr-tb576">{patient.phone2}</td>
+                    <td>
+                      <img
+                        className="gpcr-product-listing-btn"
+                        src={iconEdit}
+                        alt="Editar"
+                      />
+                      <img
+                        className="gpcr-product-listing-btn"
+                        src={iconDelete}
+                        alt="Deletar"
+                      />
+                      <img
+                        className="gpcr-product-listing-btn"
+                        src={iconRelatory}
+                        alt="Relatorio"
+                      />
+                    </td>
+                  </tr>
+                ))}
               </tbody>
-
             </table>
-
           </div>
 
           <ButtonNextPage />
-
         </section>
-
       </main>
     </>
   );
