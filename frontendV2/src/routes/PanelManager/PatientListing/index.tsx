@@ -5,8 +5,21 @@ import iconDelete from "../../../assets/delete.svg";
 import iconRelatory from "../../../assets/relatory.svg";
 import "./styles.css";
 import ButtonNextPage from "../../../components/ButtonNextPage";
+import * as patientService from "../../../services/patient-service";
+import { useEffect, useState } from "react";
+import { PatientDTO } from "../../../models/patients";
 
 export default function PatientListing() {
+
+  const [ patients, setPatients ] = useState<PatientDTO[]>([]);
+
+  useEffect(() => {
+    patientService.findAll()
+      .then(response => {
+        setPatients(response.data.content);
+      });
+  },[]);
+
   return (
     <>
 
@@ -20,9 +33,9 @@ export default function PatientListing() {
           <SearchBar />
 
           <div className="gpcr-panel-form">
-            
+
             <table className="gpcr-table gpcr-mb20 gpcr-mt20">
-              
+
               <thead>
                 <tr>
                   <th className="gpcr-txt-left">Nome</th>
@@ -34,222 +47,36 @@ export default function PatientListing() {
               </thead>
 
               <tbody>
-                
-                <tr>
-                  <td className="gpcr-txt-left">Jill Castro Alves</td>
-                  <td className="gpcr-tb768">501.985.698-85</td>
-                  <td className="gpcr-txt-left">(15) 9 9816-28987</td>
-                  <td className="gpcr-tb576">(15) 9 9736-38987</td>
-                  <td>
-                    <img
-                      className="gpcr-product-listing-btn"
-                      src={iconEdit}
-                      alt="Editar"
-                    />
-                    <img
-                      className="gpcr-product-listing-btn"
-                      src={iconDelete}
-                      alt="Deletar"
-                    />
-                    <img
-                      className="gpcr-product-listing-btn"
-                      src={iconRelatory}
-                      alt="Relatorio"
-                    />
-                  </td>
-                </tr>
+                {
+                  patients.map(
+                    patient => (
+                      <tr key={patient.id}>
+                        <td className="gpcr-txt-left">{patient.name}</td>
+                        <td className="gpcr-tb768">{patient.cpf}</td>
+                        <td className="gpcr-txt-left">{patient.phone1}</td>
+                        <td className="gpcr-tb576">{patient.phone2}</td>
+                        <td>
+                          <img
+                            className="gpcr-product-listing-btn"
+                            src={iconEdit}
+                            alt="Editar"
+                          />
+                          <img
+                            className="gpcr-product-listing-btn"
+                            src={iconDelete}
+                            alt="Deletar"
+                          />
+                          <img
+                            className="gpcr-product-listing-btn"
+                            src={iconRelatory}
+                            alt="Relatorio"
+                          />
+                        </td>
+                      </tr>
+                    )
+                  )
+                }
 
-                <tr>
-                  <td className="gpcr-txt-left">Jill Castro Alves</td>
-                  <td className="gpcr-tb768">501.985.698-85</td>
-                  <td className="gpcr-txt-left">(15) 9 9816-28987</td>
-                  <td className="gpcr-tb576">(15) 9 9736-38987</td>
-                  <td>
-                    <img
-                      className="gpcr-product-listing-btn"
-                      src={iconEdit}
-                      alt="Editar"
-                    />
-                    <img
-                      className="gpcr-product-listing-btn"
-                      src={iconDelete}
-                      alt="Deletar"
-                    />
-                    <img
-                      className="gpcr-product-listing-btn"
-                      src={iconRelatory}
-                      alt="Relatorio"
-                    />
-                  </td>
-                </tr>
-
-                <tr>
-                  <td className="gpcr-txt-left">Jill Castro Alves</td>
-                  <td className="gpcr-tb768">501.985.698-85</td>
-                  <td className="gpcr-txt-left">(15) 9 9816-28987</td>
-                  <td className="gpcr-tb576">(15) 9 9736-38987</td>
-                  <td>
-                    <img
-                      className="gpcr-product-listing-btn"
-                      src={iconEdit}
-                      alt="Editar"
-                    />
-                    <img
-                      className="gpcr-product-listing-btn"
-                      src={iconDelete}
-                      alt="Deletar"
-                    />
-                    <img
-                      className="gpcr-product-listing-btn"
-                      src={iconRelatory}
-                      alt="Relatorio"
-                    />
-                  </td>
-                </tr>
-
-                <tr>
-                  <td className="gpcr-txt-left">Jill Castro Alves</td>
-                  <td className="gpcr-tb768">501.985.698-85</td>
-                  <td className="gpcr-txt-left">(15) 9 9816-28987</td>
-                  <td className="gpcr-tb576">(15) 9 9736-38987</td>
-                  <td>
-                    <img
-                      className="gpcr-product-listing-btn"
-                      src={iconEdit}
-                      alt="Editar"
-                    />
-                    <img
-                      className="gpcr-product-listing-btn"
-                      src={iconDelete}
-                      alt="Deletar"
-                    />
-                    <img
-                      className="gpcr-product-listing-btn"
-                      src={iconRelatory}
-                      alt="Relatorio"
-                    />
-                  </td>
-                </tr>
-
-                <tr>
-                  <td className="gpcr-txt-left">Jill Castro Alves</td>
-                  <td className="gpcr-tb768">501.985.698-85</td>
-                  <td className="gpcr-txt-left">(15) 9 9816-28987</td>
-                  <td className="gpcr-tb576">(15) 9 9736-38987</td>
-                  <td>
-                    <img
-                      className="gpcr-product-listing-btn"
-                      src={iconEdit}
-                      alt="Editar"
-                    />
-                    <img
-                      className="gpcr-product-listing-btn"
-                      src={iconDelete}
-                      alt="Deletar"
-                    />
-                    <img
-                      className="gpcr-product-listing-btn"
-                      src={iconRelatory}
-                      alt="Relatorio"
-                    />
-                  </td>
-                </tr>
-
-                <tr>
-                  <td className="gpcr-txt-left">Jill Castro Alves</td>
-                  <td className="gpcr-tb768">501.985.698-85</td>
-                  <td className="gpcr-txt-left">(15) 9 9816-28987</td>
-                  <td className="gpcr-tb576">(15) 9 9736-38987</td>
-                  <td>
-                    <img
-                      className="gpcr-product-listing-btn"
-                      src={iconEdit}
-                      alt="Editar"
-                    />
-                    <img
-                      className="gpcr-product-listing-btn"
-                      src={iconDelete}
-                      alt="Deletar"
-                    />
-                    <img
-                      className="gpcr-product-listing-btn"
-                      src={iconRelatory}
-                      alt="Relatorio"
-                    />
-                  </td>
-                </tr>
-
-                <tr>
-                  <td className="gpcr-txt-left">Jill Castro Alves</td>
-                  <td className="gpcr-tb768">501.985.698-85</td>
-                  <td className="gpcr-txt-left">(15) 9 9816-28987</td>
-                  <td className="gpcr-tb576">(15) 9 9736-38987</td>
-                  <td>
-                    <img
-                      className="gpcr-product-listing-btn"
-                      src={iconEdit}
-                      alt="Editar"
-                    />
-                    <img
-                      className="gpcr-product-listing-btn"
-                      src={iconDelete}
-                      alt="Deletar"
-                    />
-                    <img
-                      className="gpcr-product-listing-btn"
-                      src={iconRelatory}
-                      alt="Relatorio"
-                    />
-                  </td>
-                </tr>
-
-                <tr>
-                  <td className="gpcr-txt-left">Jill Castro Alves</td>
-                  <td className="gpcr-tb768">501.985.698-85</td>
-                  <td className="gpcr-txt-left">(15) 9 9816-28987</td>
-                  <td className="gpcr-tb576">(15) 9 9736-38987</td>
-                  <td>
-                    <img
-                      className="gpcr-product-listing-btn"
-                      src={iconEdit}
-                      alt="Editar"
-                    />
-                    <img
-                      className="gpcr-product-listing-btn"
-                      src={iconDelete}
-                      alt="Deletar"
-                    />
-                    <img
-                      className="gpcr-product-listing-btn"
-                      src={iconRelatory}
-                      alt="Relatorio"
-                    />
-                  </td>
-                </tr>
-
-                <tr>
-                  <td className="gpcr-txt-left">Jill Castro Alves</td>
-                  <td className="gpcr-tb768">501.985.698-85</td>
-                  <td className="gpcr-txt-left">(15) 9 9816-28987</td>
-                  <td className="gpcr-tb576">(15) 9 9736-38987</td>
-                  <td>
-                    <img
-                      className="gpcr-product-listing-btn"
-                      src={iconEdit}
-                      alt="Editar"
-                    />
-                    <img
-                      className="gpcr-product-listing-btn"
-                      src={iconDelete}
-                      alt="Deletar"
-                    />
-                    <img
-                      className="gpcr-product-listing-btn"
-                      src={iconRelatory}
-                      alt="Relatorio"
-                    />
-                  </td>
-                </tr>
 
               </tbody>
 
@@ -259,7 +86,7 @@ export default function PatientListing() {
 
           <ButtonNextPage />
 
-        </section>        
+        </section>
 
       </main>
     </>

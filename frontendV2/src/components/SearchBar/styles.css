@@ -15,7 +15,7 @@
     border-right: none;
     padding: 0 10px;
     font-size: 16px;
-    color: var(--gprc-color-bg-secondary6);
+    color: var(--gpcr-color-font-primary);
   }
   
   .gpcr-search-bar input:focus {

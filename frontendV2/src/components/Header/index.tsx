@@ -3,6 +3,7 @@ import iconDsh from '../../assets/dsh-patient.svg';
 import iconPatient from '../../assets/icon-patient.svg';
 import iconProfessional from '../../assets/icon-professional.svg';
 import iconProcedure from '../../assets/icon-procedure.svg';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
     return (
@@ -10,17 +11,29 @@ export default function Header() {
             <nav className="gpcr-container">
                 <div className="gpcr-navbar">
                     <div className="gpcr-menu-items-container">
+
                         <div className="gpcr-menu-item">
-                            <img src={iconDsh} alt="Dashboard" />
+                            <Link to="/">
+                                <img src={iconDsh} alt="Dashboard" />
+                            </Link>
                         </div>
+
+
                         <div className="gpcr-menu-item gpcr-menu-item-active">
-                            <img src={iconPatient} alt="Pacientes" />
+                            <Link to="/patients">
+                                <img src={iconPatient} alt="Pacientes" />
+                            </Link>
                         </div>
                         <div className="gpcr-menu-item">
-                            <img src={iconProfessional} alt="Profissionais" />
+                            <Link to="/professionals">
+                                <img src={iconProfessional} alt="Profissionais" />
+                            </Link>                            
                         </div>
                         <div className="gpcr-menu-item">
-                            <img src={iconProcedure} alt="Procedimentos" />
+                            <Link to="/procedures">
+                                <img src={iconProcedure} alt="Procedimentos" />
+                            </Link>
+                            
                         </div>
                     </div>
                 </div>
