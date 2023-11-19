@@ -12,14 +12,14 @@ export default function Header() {
                 <div className="gpcr-navbar">
                     <div className="gpcr-menu-items-container">
 
-                        <div className="gpcr-menu-item">
+                        <div id='dash' className="gpcr-menu-item gpcr-menu-item-active">
                             <Link to="/">
                                 <img src={iconDsh} alt="Dashboard" />
                             </Link>
                         </div>
 
 
-                        <div className="gpcr-menu-item gpcr-menu-item-active">
+                        <div className="gpcr-menu-item">
                             <Link to="/patients">
                                 <img src={iconPatient} alt="Pacientes" />
                             </Link>

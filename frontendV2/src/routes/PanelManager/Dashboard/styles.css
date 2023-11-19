@@ -1,0 +1,60 @@
+/**CARD RED - GREEN - BLUE ******************************************************/
+.dsh-panel-title {
+    margin-top: 50px;
+    font-weight: 700;
+    margin-left: 3px;    
+    border-bottom: 1px solid #2f2e4111;
+}
+
+.dsh-panel-title h1 {
+    margin-bottom: 15px;
+}
+
+.dsh-panel{
+    width: 60%;
+    margin: 0 auto;
+    text-align: start;
+}
+
+.dsh-container{
+    display: flex;
+    justify-content: center;
+}
+
+.dsh-card{
+    width: 225px;
+    height: 187px;
+    margin: 25px;
+}
+
+.dsh-card h2{
+    font-size: 60px;
+    padding: 20px;
+    border-bottom: 1px solid #2f2e4110;
+}
+
+.dsh-card h3{
+    font-size: 18px;
+    padding: 20px;    
+}
+
+/**CARD BLACK******************************************************/
+.dsh-card-black{
+    width: 737px;
+    height: 162px;
+    margin: 25px 0 25px;
+    color: #fff;
+    text-align: center;
+    background-color: #2F2E41;
+}
+
+.dsh-card-black h2{
+    font-size: 60px;
+    padding: 15px;
+    border-bottom: 1px solid #ffffff0a;
+}
+
+.dsh-card-black h3{
+    font-size: 18px;
+    padding: 15px;
+}
